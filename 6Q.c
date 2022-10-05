@@ -1,47 +1,22 @@
 #include<stdio.h>
-
-void prime(int,int);
-
+int check(int,int);
 int main(){
-
-int r,n;
-
-printf("Enter a first and second number : ");
-
-scanf("%d %d",&n,&r);
-
-prime(r,n);
-
-return 0;
-
+    int n1,n2;
+    printf("Enter the range of prime numbers : ");
+    scanf("%d %d",&n1,&n2);
+    check(n1,n2);
+    return 0;
 }
-
-void prime(int r,int n){
-
-int x=n,i;
-
-while(r>n){
-
-for(i=2;i<x;i++){
-
-if(x%i==0){
-
-break;
-
-}
-
-}
-
-if(i==x){
-
-printf("%d ",x);
-
-}
-
-r--;
-
-x++;
-
-}
-
+int check(int n1,int n2){
+    int i,j;
+    for(i=n1;i<=n2;i++){
+        for(j=i/2;j>1;j--){
+            if(i%j==0){
+                break;
+            }
+        }
+        if(j==1){
+            printf("%d ",i);
+        }
+    }
 }
