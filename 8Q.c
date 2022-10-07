@@ -1,38 +1,28 @@
 #include<stdio.h>
-int fact(int);
 void pascal(int);
-int combi(int,int);
 int main(){
-int n;
-printf("Enter no of rows : ");
-scanf("%d",&n);
-pascal(n);
+    int rows;
+    printf("Enter the number of rows : ");
+    scanf("%d",&rows);
+    pascal(rows);
+    return 0;
 }
-int fact(int n){
-int i,facts=1;
-for(i=n;i>1;i--){
-facts=i*facts;
-}
-return(facts);
-}
-int combi(int n,int r){
-return fact(n)/(fact(r)*fact(n-r));
-}
-void pascal(int n){
-int i,j,k=1,l,r;
-for(i=0;i<n;i++){
-r=0;
-for(j=0;j<2*n;j++){
-if(j>=n-i&&j<=n+i&&k){
-printf("%d",combi(i,r));
-k=0;
-r++;
-}
-else{
-printf(" ");
-k=1;
-}
-}
-printf("\n");
-}
+void pascal(int rows){
+    int space,n,r,ncr;
+    for(n=0;n<rows;n++){
+        for(space=1;space<rows-n;space++){
+            printf(" ");
+        }
+        for(r=0;r<=n;r++){
+            if(r==0){
+                ncr=1;
+                printf("%d ",ncr);
+            }
+            else{
+                ncr=ncr*(n-r+1)/r;
+                printf("%d ",ncr);
+            }
+        }
+        printf("\n");
+    }
 }
